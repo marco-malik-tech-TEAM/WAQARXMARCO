@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050b10">
+<title>MARCO X WAQAR MD BOT · Pair your WhatsApp</title>
+<meta name="description" content="Link your WhatsApp to MARCO X WAQAR MD BOT in seconds. Web and Telegram pairing.">
+<link rel="icon" href="/dp.jpg">
+<style>
+:root{
+  --bg:#050b10; --glass:rgba(14,24,30,.62); --line:rgba(120,255,190,.14); --line2:rgba(255,255,255,.08);
+  --txt:#e8f1f2; --mut:#8aa0a8; --g:#25d366; --g2:#12b886; --c:#22d3ee; --p:#8b5cf6; --err:#ff6b7d;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--txt);
+  font:16px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;overflow-x:hidden}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.28;z-index:0;pointer-events:none;animation:float 18s ease-in-out infinite}
+.o1{width:380px;height:380px;background:var(--g);top:-120px;left:-100px}
+.o2{width:340px;height:340px;background:var(--p);bottom:-120px;right:-90px;animation-delay:-6s}
+.o3{width:260px;height:260px;background:var(--c);top:45%;left:60%;animation-delay:-11s;opacity:.16}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-50px) scale(1.15)}}
+.grid{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(var(--line2) 1px,transparent 1px),linear-gradient(90deg,var(--line2) 1px,transparent 1px);
+  background-size:46px 46px;mask-image:radial-gradient(ellipse at 50% 30%,#000 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 0%,transparent 70%);opacity:.35}
+.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:0 16px calc(40px + env(safe-area-inset-bottom))}
+
+/* nav */
+nav{display:flex;align-items:center;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top)) 0 10px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.4px;font-size:15px}
+.brand img{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);object-fit:cover}
+.live{display:flex;align-items:center;gap:8px;font-size:12px;padding:6px 12px;border-radius:99px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 0 0 rgba(37,211,102,.7);animation:pulse 1.8s infinite}
+.dot.off{background:var(--err);animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+/* hero */
+.hero{text-align:center;padding:26px 0 8px}
+.dpwrap{position:relative;width:132px;height:132px;margin:0 auto 18px}
+.dpwrap::before{content:"";position:absolute;inset:-6px;border-radius:50%;
+  background:conic-gradient(from 0deg,var(--g),var(--c),var(--p),var(--g));animation:spin 5s linear infinite;filter:blur(.3px)}
+.dpwrap::after{content:"";position:absolute;inset:-18px;border-radius:50%;border:1px dashed rgba(37,211,102,.35);animation:spin 18s linear infinite reverse}
+.dpwrap img{position:relative;z-index:2;width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid var(--bg);display:block}
+.badge{position:absolute;z-index:3;right:2px;bottom:4px;width:30px;height:30px;border-radius:50%;background:var(--g);display:grid;place-items:center;border:3px solid var(--bg);box-shadow:0 0 18px rgba(37,211,102,.7)}
+.badge svg{width:16px;height:16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+h1{margin:0;font-size:clamp(28px,6.4vw,50px);line-height:1.1;font-weight:800;letter-spacing:.5px;
+  background:linear-gradient(90deg,#fff,var(--g),var(--c),#fff);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:-250% 0}}
+.tag{margin:10px auto 0;color:var(--mut);max-width:560px;font-size:15px}
+.by{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-size:12.5px;padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.by b{color:var(--g)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:26px 0 6px}
+.stat{padding:14px 10px;text-align:center;border-radius:16px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.stat .v{font:700 20px/1.1 ui-monospace,Menlo,Consolas,monospace;color:var(--g)}
+.stat .l{font-size:11px;color:var(--mut);margin-top:6px;text-transform:uppercase;letter-spacing:1px}
+
+/* cards */
+.card{position:relative;margin:18px auto;max-width:520px;padding:26px 22px;border-radius:24px;background:var(--glass);border:1px solid var(--line);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 30px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.05);overflow:hidden}
+.card::before{content:"";position:absolute;left:-40%;top:0;width:40%;height:2px;background:linear-gradient(90deg,transparent,var(--g),transparent);animation:scan 3.6s linear infinite}
+@keyframes scan{to{left:140%}}
+.card h2{margin:0 0 4px;font-size:20px;text-align:center}
+.sub{text-align:center;color:var(--mut);font-size:14px;margin-bottom:16px}
+label{display:block;font-size:12.5px;color:var(--mut);margin:14px 0 6px;letter-spacing:.3px}
+.field{position:relative}
+.field svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;opacity:.7}
+input{width:100%;padding:15px 14px 15px 44px;border-radius:14px;border:1px solid var(--line2);background:rgba(5,11,16,.75);color:var(--txt);font-size:18px;outline:none;letter-spacing:.6px;transition:.2s}
+input.plain{padding-left:14px}
+input:focus{border-color:var(--g);box-shadow:0 0 0 4px rgba(37,211,102,.14)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.chip{font-size:12px;padding:6px 10px;border-radius:99px;border:1px solid var(--line2);background:rgba(255,255,255,.03);color:var(--mut);cursor:pointer;transition:.2s}
+.chip:hover,.chip:active{border-color:var(--g);color:var(--g)}
+.hint{font-size:12px;color:var(--mut);margin-top:8px}
+.btn{width:100%;margin-top:18px;padding:15px;border:0;border-radius:14px;font-weight:700;font-size:16px;cursor:pointer;color:#03140a;
+  background:linear-gradient(135deg,var(--g),var(--g2));box-shadow:0 10px 30px rgba(37,211,102,.28);transition:.2s;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none}
+.btn:hover{transform:translateY(-1px);box-shadow:0 14px 36px rgba(37,211,102,.4)}
+.btn:active{transform:scale(.98)}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+.btn.ghost{background:rgba(255,255,255,.04);border:1px solid var(--line2);color:var(--txt);box-shadow:none;margin-top:10px;font-weight:600}
+.btn.tg{background:linear-gradient(135deg,#2aabee,#229ed9);color:#fff;box-shadow:0 10px 30px rgba(34,158,217,.3)}
+.spin{width:18px;height:18px;border-radius:50%;border:3px solid rgba(3,20,10,.25);border-top-color:#03140a;animation:spin .8s linear infinite}
+.err{background:rgba(255,107,125,.1);border:1px solid rgba(255,107,125,.4);color:#ffc2ca;padding:11px 13px;border-radius:12px;margin-top:14px;font-size:14px}
+.hide{display:none!important}
+
+/* code */
+.timer{position:relative;width:74px;height:74px;margin:6px auto 10px}
+.timer svg{width:74px;height:74px;transform:rotate(-90deg)}
+.timer .bgc{stroke:rgba(255,255,255,.08)}
+.timer .fg{stroke:var(--g);transition:stroke-dashoffset 1s linear,stroke .3s}
+.timer span{position:absolute;inset:0;display:grid;place-items:center;font:700 16px ui-monospace,Menlo,monospace}
+.codeRow{display:flex;justify-content:center;align-items:center;gap:6px;margin:8px 0 4px}
+.cb{width:clamp(30px,9.2vw,42px);height:clamp(42px,12vw,54px);display:grid;place-items:center;border-radius:11px;background:rgba(5,11,16,.85);
+  border:1px solid rgba(37,211,102,.5);color:var(--g);font:800 clamp(20px,6vw,28px) ui-monospace,Menlo,Consolas,monospace;box-shadow:0 0 18px rgba(37,211,102,.18);
+  animation:pop .45s cubic-bezier(.2,1.6,.4,1) both}
+.dash{color:var(--mut);font-weight:700;margin:0 2px}
+@keyframes pop{from{transform:translateY(10px) scale(.6);opacity:0}}
+.wait{display:flex;align-items:center;justify-content:center;gap:9px;font-size:13.5px;color:var(--c);margin-top:12px}
+.wait i{width:8px;height:8px;border-radius:50%;background:var(--c);animation:blink 1.2s infinite}
+.wait i:nth-child(2){animation-delay:.2s}.wait i:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:.2}40%{opacity:1}}
+ol.steps{padding:0;margin:16px 0 0;list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#cfdde0;margin:9px 0}
+ol.steps li::before{content:counter(s);flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;background:rgba(37,211,102,.14);color:var(--g);border:1px solid rgba(37,211,102,.4)}
+
+/* success */
+.ok{text-align:center}
+.check{width:92px;height:92px;margin:4px auto 10px}
+.check circle{stroke:var(--g);stroke-width:4;fill:rgba(37,211,102,.08);stroke-dasharray:290;stroke-dashoffset:290;animation:dr .7s .1s forwards}
+.check path{stroke:var(--g);stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:dr .5s .7s forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.cmd{display:inline-block;margin:8px 0;padding:6px 14px;border-radius:10px;background:rgba(5,11,16,.9);border:1px solid var(--line);font:700 17px ui-monospace,Menlo,monospace;color:var(--g)}
+
+/* sections */
+.sec{margin-top:44px}
+.sec h3{text-align:center;font-size:22px;margin:0 0 4px}
+.sec p.s{text-align:center;color:var(--mut);margin:0 0 18px;font-size:14px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.f{padding:18px;border-radius:18px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:.25s}
+.f:hover{transform:translateY(-4px);border-color:rgba(37,211,102,.5);box-shadow:0 14px 40px rgba(37,211,102,.12)}
+.f .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;margin-bottom:10px;background:linear-gradient(135deg,rgba(37,211,102,.2),rgba(34,211,238,.15));border:1px solid var(--line);font-size:20px}
+.f b{display:block;margin-bottom:3px}
+.f span{color:var(--mut);font-size:13.5px}
+.term{max-width:640px;margin:0 auto;border-radius:16px;background:rgba(3,8,11,.85);border:1px solid var(--line);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.tbar{display:flex;gap:6px;align-items:center;padding:10px 12px;background:rgba(255,255,255,.04);font-size:12px;color:var(--mut)}
+.tbar i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.tbody{padding:12px 14px;height:178px;overflow:hidden;font:12.5px/1.65 ui-monospace,Menlo,Consolas,monospace;color:#9fe8bd;display:flex;flex-direction:column;justify-content:flex-end}
+.tbody div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;animation:in .3s}
+.tbody .t{color:#5f7a84}.tbody .w{color:#ffd479}.tbody .e{color:var(--err)}
+@keyframes in{from{opacity:0;transform:translateY(6px)}}
+.links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:22px 0 6px}
+.links a{display:inline-flex;gap:8px;align-items:center;text-decoration:none;color:var(--txt);font-size:14px;padding:10px 16px;border-radius:99px;background:var(--glass);border:1px solid var(--line);transition:.2s;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.links a:hover{border-color:var(--g);color:var(--g);transform:translateY(-2px)}
+footer{text-align:center;color:var(--mut);font-size:13px;margin-top:30px;padding-top:20px;border-top:1px solid var(--line2)}
+footer b{background:linear-gradient(90deg,var(--g),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+@media(max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}.card{padding:22px 16px}.nav-name{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div class="grid"></div><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+
+<div class="wrap">
+  <nav>
+    <div class="brand"><img src="/dp.jpg" alt=""><span class="nav-name">MARCO X WAQAR MD</span></div>
+    <div class="live"><span class="dot" id="dot"></span><span id="liveTxt">Connecting…</span></div>
+  </nav>
+
+  <header class="hero">
+    <div class="dpwrap">
+      <img src="/dp.jpg" alt="MARCO X WAQAR MD BOT">
+      <div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="#03140a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    </div>
+    <h1>MARCO X WAQAR MD BOT</h1>
+    <p class="tag" id="tagline">Together for Better Experience. Link your WhatsApp in under a minute and unlock 200+ commands.</p>
+    <div class="by">⚡ Powered by <b>MARCO X WAQAR</b> · Developer <b id="dev">Marco Malik</b> · Co-owner <b id="co">WAQAR WRITES</b></div>
+  </header>
+
+  <section class="stats">
+    <div class="stat"><div class="v" id="sUp">--:--:--</div><div class="l">Uptime</div></div>
+    <div class="stat"><div class="v" id="sSes">0</div><div class="l">Active bots</div></div>
+    <div class="stat"><div class="v" id="sPing">-- ms</div><div class="l">Latency</div></div>
+    <div class="stat"><div class="v" id="sMem">-- MB</div><div class="l">Server RAM</div></div>
+  </section>
+
+  <!-- PAIRING -->
+  <main class="card" id="pair">
+    <!-- step 1 -->
+    <div id="vForm">
+      <h2>Link your WhatsApp</h2>
+      <div class="sub">Enter your number with the country code, no + sign</div>
+
+      <label for="num">WhatsApp number</label>
+      <div class="field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#25d366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+        <input id="num" type="tel" inputmode="numeric" autocomplete="tel" placeholder="923001234567" maxlength="20">
+      </div>
+      <div class="chips" id="chips"></div>
+      <div class="hint">Pakistan example: <b>92</b> + number without the leading 0</div>
+
+      <div id="pwWrap" class="hide">
+        <label for="pw">Access password</label>
+        <input id="pw" class="plain" type="password" autocomplete="current-password" placeholder="••••••">
+      </div>
+
+      <button class="btn" id="go"><span id="goTxt">Get Pairing Code</span></button>
+      <div id="err" class="err hide"></div>
+    </div>
+
+    <!-- step 2 -->
+    <div id="vCode" class="hide">
+      <h2>Your pairing code</h2>
+      <div class="sub">for <b id="forNum"></b></div>
+      <div class="timer">
+        <svg viewBox="0 0 74 74"><circle class="bgc" cx="37" cy="37" r="32" fill="none" stroke-width="6"/><circle class="fg" id="ring" cx="37" cy="37" r="32" fill="none" stroke-width="6" stroke-linecap="round" stroke-dasharray="201.06" stroke-dashoffset="0"/></svg>
+        <span id="secs">120</span>
+      </div>
+      <div class="codeRow" id="codeRow"></div>
+      <button class="btn" id="copy">Copy code</button>
+      <a class="btn ghost" id="openWa" href="https://wa.me/" target="_blank" rel="noopener">Open WhatsApp</a>
+      <div class="wait" id="waiting"><i></i><i></i><i></i><span>Waiting for you to enter the code in WhatsApp</span></div>
+      <ol class="steps">
+        <li>Open <b>WhatsApp</b> on that phone</li>
+        <li><b>Settings → Linked Devices → Link a Device</b></li>
+        <li>Tap <b>Link with phone number instead</b></li>
+        <li>Paste or type the code above and confirm</li>
+      </ol>
+      <button class="btn ghost" id="again">Use another number</button>
+      <div id="err2" class="err hide"></div>
+    </div>
+
+    <!-- step 3 -->
+    <div id="vOk" class="hide ok">
+      <svg class="check" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46"/><path d="M30 52l14 14 27-30"/></svg>
+      <h2>Linked successfully!</h2>
+      <div class="sub" id="okSub">Your bot is starting up. This takes a few seconds.</div>
+      <div>Send this in any WhatsApp chat:</div>
+      <div class="cmd">.menu</div>
+      <a class="btn" id="okWa" href="https://wa.me/" target="_blank" rel="noopener">Open WhatsApp</a>
+      <button class="btn ghost" id="again2">Link another number</button>
+    </div>
+  </main>
+
+  <!-- TELEGRAM -->
+  <section class="card" id="tgCard" style="padding:20px 22px">
+    <h2 style="font-size:17px">Prefer Telegram?</h2>
+    <div class="sub" style="margin-bottom:6px">You can also pair from our Telegram bot. Send <b>/pair 923001234567</b> and get the same code.</div>
+    <a class="btn tg" id="tgBtn" href="#" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M9.8 15.6l-.4 4.2c.6 0 .9-.3 1.2-.6l2.9-2.7 6 4.4c1.1.6 1.9.3 2.2-1L24 3.9c.4-1.6-.6-2.2-1.6-1.8L1.2 10.3C-.2 10.9-.2 11.7 1 12l5.4 1.7L19 5.8c.6-.4 1.1-.2.7.2z"/></svg>
+      <span id="tgTxt">Open Telegram bot</span>
+    </a>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="sec">
+    <h3>Everything in one bot</h3>
+    <p class="s">Built with Node.js and Baileys · fast, stable and always online</p>
+    <div class="feat">
+      <div class="f"><div class="ic">🎵</div><b>Media downloader</b><span>Songs, videos, Instagram, Facebook and more.</span></div>
+      <div class="f"><div class="ic">🛡️</div><b>Group security</b><span>Anti-link, anti-spam, warn, kick, mute, welcome cards.</span></div>
+      <div class="f"><div class="ic">🤖</div><b>AI tools</b><span>Chat AI, vision, image creation and text tools.</span></div>
+      <div class="f"><div class="ic">🎨</div><b>Stickers and media</b><span>Sticker maker, converters, PDF, OCR and background remover.</span></div>
+      <div class="f"><div class="ic">⚽</div><b>Live football</b><span>Scores, standings and top scorers of the big leagues.</span></div>
+      <div class="f"><div class="ic">♾️</div><b>Unlimited pairing</b><span>Every number gets its own separate bot session.</span></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h3>Live system log</h3>
+    <p class="s">Real server status, refreshed every few seconds</p>
+    <div class="term">
+      <div class="tbar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span style="margin-left:8px">marco-waqar-md ~ status</span></div>
+      <div class="tbody" id="log"></div>
+    </div>
+  </section>
+
+  <div class="links" id="links"></div>
+
+  <footer>
+    © <span id="yr"></span> <b>MARCO X WAQAR MD BOT</b> · Powered by Marco X Waqar<br>
+    <span style="font-size:12px">Your WhatsApp is linked to your own private bot session.</span>
+  </footer>
+</div>
+
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+let INFO = { codeSeconds: 120 };
+
+/* ---------- animated network background ---------- */
+(function(){
+  const cv = $("bg"), cx = cv.getContext("2d");
+  let W, H, pts = [], pulses = [], mouse = { x: -999, y: -999 }, DPR = Math.min(devicePixelRatio || 1, 2);
+  function size(){
+    W = innerWidth; H = innerHeight;
+    cv.width = W * DPR; cv.height = H * DPR; cx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    const n = Math.max(28, Math.min(90, Math.round(W * H / 17000)));
+    pts = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35, r: Math.random() * 1.6 + .8 }));
+  }
+  addEventListener("resize", size); size();
+  addEventListener("pointermove", (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+  addEventListener("pointerleave", () => { mouse.x = mouse.y = -999; });
+  const LINK = () => Math.min(150, Math.max(105, W / 7));
+  function frame(){
+    cx.clearRect(0, 0, W, H);
+    const L = LINK();
+    for (const p of pts){
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+      const dx = p.x - mouse.x, dy = p.y - mouse.y, d = Math.hypot(dx, dy);
+      if (d < 110){ p.x += dx / d * .8; p.y += dy / d * .8; }
+    }
+    for (let i = 0; i < pts.length; i++){
+      const a = pts[i];
+      for (let j = i + 1; j < pts.length; j++){
+        const b = pts[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+        if (d < L){
+          cx.strokeStyle = "rgba(37,211,102," + (0.2 * (1 - d / L)) + ")"; cx.lineWidth = 1;
+          cx.beginPath(); cx.moveTo(a.x, a.y); cx.lineTo(b.x, b.y); cx.stroke();
+          if (Math.random() < .0009 && pulses.length < 14) pulses.push({ a, b, t: 0 });
+        }
+      }
+      cx.fillStyle = "rgba(120,255,190,.75)"; cx.beginPath(); cx.arc(a.x, a.y, a.r, 0, 7); cx.fill();
+    }
+    pulses = pulses.filter((p) => (p.t += .02) < 1);
+    for (const p of pulses){
+      const x = p.a.x + (p.b.x - p.a.x) * p.t, y = p.a.y + (p.b.y - p.a.y) * p.t;
+      const g = cx.createRadialGradient(x, y, 0, x, y, 9);
+      g.addColorStop(0, "rgba(34,211,238,.95)"); g.addColorStop(1, "rgba(34,211,238,0)");
+      cx.fillStyle = g; cx.beginPath(); cx.arc(x, y, 9, 0, 7); cx.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+
+/* ---------- log ---------- */
+const logBox = $("log");
+function log(msg, cls){
+  const d = document.createElement("div");
+  const t = new Date().toLocaleTimeString([], { hour12: false });
+  d.innerHTML = '<span class="t">[' + t + ']</span> ' + (cls ? '<span class="' + cls + '">' : "<span>") + msg.replace(/</g, "&lt;") + "</span>";
+  logBox.appendChild(d);
+  while (logBox.children.length > 8) logBox.removeChild(logBox.firstChild);
+}
+
+/* ---------- live stats ---------- */
+let upBase = 0, upAt = 0, lastOk = false;
+const pad = (n) => String(n).padStart(2, "0");
+function fmtUp(s){ const d = Math.floor(s / 86400); s %= 86400; return (d ? d + "d " : "") + pad(Math.floor(s / 3600)) + ":" + pad(Math.floor(s % 3600 / 60)) + ":" + pad(s % 60); }
+setInterval(() => { if (lastOk) $("sUp").textContent = fmtUp(upBase + Math.floor((Date.now() - upAt) / 1000)); }, 1000);
+
+async function stats(){
+  try {
+    const t0 = performance.now();
+    const r = await fetch("/api/stats", { cache: "no-store" });
+    const ping = Math.round(performance.now() - t0);
+    const j = await r.json();
+    upBase = j.uptime; upAt = Date.now(); lastOk = true;
+    $("sSes").textContent = j.sessions; $("sPing").textContent = ping + " ms"; $("sMem").textContent = j.memoryMB + " MB";
+    $("dot").classList.remove("off"); $("liveTxt").textContent = "Online · " + ping + " ms";
+    log("heartbeat ok · latency " + ping + " ms · active bots " + j.sessions);
+  } catch (e){
+    lastOk = false; $("dot").classList.add("off"); $("liveTxt").textContent = "Offline"; log("server not reachable, retrying…", "e");
+  }
+}
+fetch("/api/info").then((r) => r.json()).then((j) => {
+  INFO = j;
+  if (j.developer) $("dev").textContent = j.developer;
+  if (j.coOwner) $("co").textContent = j.coOwner;
+  if (j.passwordRequired) $("pwWrap").classList.remove("hide");
+  const L = [];
+  if (j.channel) L.push('<a href="' + j.channel + '" target="_blank" rel="noopener">📢 WhatsApp channel</a>');
+  if (j.group) L.push('<a href="' + j.group + '" target="_blank" rel="noopener">👥 WhatsApp group</a>');
+  if (j.telegram) L.push('<a href="' + j.telegram + '" target="_blank" rel="noopener">✈️ Telegram ' + j.telegramUser + "</a>");
+  $("links").innerHTML = L.join("");
+  if (j.telegram){ $("tgBtn").href = j.telegram; $("tgTxt").textContent = "Open " + j.telegramUser; }
+  else $("tgCard").classList.add("hide");
+}).catch(() => { $("tgCard").classList.add("hide"); });
+log("booting interface…", "t"); stats(); setInterval(stats, 6000);
+$("yr").textContent = new Date().getFullYear();
+
+/* ---------- pairing ---------- */
+const chipsData = [["🇵🇰 PK", "92"], ["🇮🇳 IN", "91"], ["🇧🇩 BD", "880"], ["🇸🇦 SA", "966"], ["🇦🇪 AE", "971"], ["🇬🇧 UK", "44"], ["🇺🇸 US", "1"], ["🇳🇬 NG", "234"]];
+chipsData.forEach(([l, c]) => { const b = document.createElement("span"); b.className = "chip"; b.textContent = l + " +" + c; b.onclick = () => { $("num").value = c; $("num").focus(); }; $("chips").appendChild(b); });
+
+let poll = null, tick = null, curNum = "", endAt = 0;
+function show(v){ for (const id of ["vForm", "vCode", "vOk"]) $(id).classList.toggle("hide", id !== v); }
+function showErr(el, msg){ el.textContent = msg; el.classList.remove("hide"); }
+function stopAll(){ clearInterval(poll); clearInterval(tick); poll = tick = null; }
+
+function renderCode(raw){
+  const c = String(raw).replace(/[^A-Za-z0-9]/g, "").toUpperCase().slice(0, 8);
+  const row = $("codeRow"); row.innerHTML = "";
+  [...c].forEach((ch, i) => {
+    if (i === 4){ const d = document.createElement("span"); d.className = "dash"; d.textContent = "-"; row.appendChild(d); }
+    const s = document.createElement("div"); s.className = "cb"; s.textContent = ch; s.style.animationDelay = (i * 60) + "ms"; row.appendChild(s);
+  });
+  row.dataset.code = c.slice(0, 4) + "-" + c.slice(4);
+}
+
+function startCountdown(total){
+  endAt = Date.now() + total * 1000;
+  const ring = $("ring"), C = 201.06;
+  clearInterval(tick);
+  const upd = () => {
+    const left = Math.max(0, Math.ceil((endAt - Date.now()) / 1000));
+    $("secs").textContent = left;
+    ring.style.strokeDashoffset = C * (1 - left / total);
+    ring.style.stroke = left < 20 ? "#ff6b7d" : "";
+    if (left <= 0){
+      stopAll(); log("code expired", "w");
+      show("vForm"); showErr($("err"), "The code expired. Please request a new one.");
+    }
+  };
+  upd(); tick = setInterval(upd, 1000);
+}
+
+function watch(number){
+  clearInterval(poll);
+  poll = setInterval(async () => {
+    try {
+      const r = await fetch("/api/status?number=" + encodeURIComponent(number), { cache: "no-store" });
+      const j = await r.json();
+      if (j.linked) success(number);
+    } catch (_){}
+  }, 2000);
+}
+
+function success(number){
+  stopAll(); curNum = number;
+  log("WhatsApp linked for +" + number + " ✔");
+  $("okWa").href = "https://wa.me/" + number;
+  show("vOk"); confetti();
+  stats();
+}
+
+async function go(){
+  const num = $("num").value.replace(/\D/g, "");
+  $("err").classList.add("hide");
+  if (num.length < 8 || num.length > 15){ return showErr($("err"), "Invalid number. Use the country code, no + or spaces. Example: 923001234567"); }
+  const btn = $("go"); btn.disabled = true; $("goTxt").innerHTML = '<span class="spin"></span> Generating code…';
+  log("pairing requested for +" + num.slice(0, 4) + "******", "w");
+  try {
+    const r = await fetch("/api/pair", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ number: num, password: $("pw").value }) });
+    const j = await r.json();
+    if (!r.ok) throw new Error(j.error || "Something went wrong.");
+    if (j.alreadyLinked){ log("number already linked"); return success(num); }
+    curNum = num; $("forNum").textContent = "+" + num; $("openWa").href = "https://wa.me/";
+    renderCode(j.code); show("vCode"); startCountdown(j.secondsLeft || INFO.codeSeconds || 120); watch(num);
+    log("pairing code generated, waiting for link…");
+  } catch (e){
+    log("pairing failed: " + e.message, "e"); showErr($("err"), e.message);
+  } finally { btn.disabled = false; $("goTxt").textContent = "Get Pairing Code"; }
+}
+
+$("go").onclick = go;
+$("num").addEventListener("keydown", (e) => { if (e.key === "Enter") go(); });
+$("pw").addEventListener("keydown", (e) => { if (e.key === "Enter") go(); });
+const back = () => { stopAll(); $("err").classList.add("hide"); $("num").value = ""; show("vForm"); };
+$("again").onclick = back; $("again2").onclick = back;
+
+$("copy").onclick = async () => {
+  const code = $("codeRow").dataset.code.replace("-", "");
+  try { await navigator.clipboard.writeText(code); }
+  catch (_){ const t = document.createElement("textarea"); t.value = code; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); } catch (_) {} t.remove(); }
+  const b = $("copy"); b.textContent = "Copied ✓"; setTimeout(() => b.textContent = "Copy code", 1800);
+};
+
+/* ---------- tiny confetti ---------- */
+function confetti(){
+  const c = document.createElement("canvas"); c.style.cssText = "position:fixed;inset:0;width:100%;height:100%;z-index:9;pointer-events:none";
+  document.body.appendChild(c); const x = c.getContext("2d"); c.width = innerWidth; c.height = innerHeight;
+  const cols = ["#25d366", "#22d3ee", "#8b5cf6", "#ffd479", "#fff"];
+  const ps = Array.from({ length: 110 }, () => ({ x: innerWidth / 2, y: innerHeight * .35, vx: (Math.random() - .5) * 14, vy: Math.random() * -12 - 3, s: Math.random() * 6 + 3, c: cols[Math.random() * cols.length | 0], r: Math.random() * 6 }));
+  let f = 0;
+  (function loop(){
+    x.clearRect(0, 0, c.width, c.height);
+    ps.forEach((p) => { p.vy += .3; p.x += p.vx; p.y += p.vy; p.r += .2; x.save(); x.translate(p.x, p.y); x.rotate(p.r); x.fillStyle = p.c; x.fillRect(-p.s / 2, -p.s / 2, p.s, p.s * .6); x.restore(); });
+    if (++f < 150) requestAnimationFrame(loop); else c.remove();
+  })();
+}
+</script>
+</body>
+</html>

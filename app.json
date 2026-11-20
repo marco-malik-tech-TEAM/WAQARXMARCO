@@ -1,0 +1,59 @@
+{
+  "name": "MARCO-X-WAQAR-MD-BOT",
+  "description": "MARCO X WAQAR MD BOT - Official WhatsApp Multi-Device Bot",
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "marco-x-waqar",
+    "baileys"
+  ],
+  "success_url": "/",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "addons": [
+    {
+      "plan": "heroku-postgresql:essential-0",
+      "as": "DATABASE"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    },
+    "web": {
+      "quantity": 0,
+      "size": "basic"
+    }
+  },
+  "env": {
+    "HEROKU_APP_NAME": {
+      "description": "The name of this Heroku app the one you entered at the top. Required if you want to use .update/.updatenow.",
+      "value": "",
+      "required": true
+    },
+    "SESSION_ID": {
+      "description": "Your WhatsApp session string (create it with the Telegram pairing bot or the pairing code flow).",
+      "value": "",
+      "required": true
+    },
+    "BOT_PREFIX": {
+      "description": "Command prefix for the bot",
+      "value": ".",
+      "required": true
+    },
+    "OWNER_NUMBER": {
+      "description": "Your WhatsApp number with country code, no + or spaces (e.g. 923001234567)",
+      "value": "",
+      "required": false
+    },
+    "HEROKU_API_KEY": {
+      "description": "Your Heroku account API key (dashboard.heroku.com/account → API Key). Required if you want to use .update/.updatenow to check and trigger redeploys from WhatsApp.",
+      "value": "",
+      "required": true
+    }
+  }
+}

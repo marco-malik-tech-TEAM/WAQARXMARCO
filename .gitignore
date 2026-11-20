@@ -1,0 +1,13 @@
+node_modules/
+.env
+# login sessions & runtime data - NEVER upload these
+auth_info_baileys/
+sessions/
+data/
+bin/
+config/botSettings.json
+data_tg_owner.json
+# secrets
+telegram_token.txt
+cookies*.txt
+*.log
